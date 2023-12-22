@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slam-deployment
+  labels:
+    app: orbslam3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orbslam3
+  template:
+    metadata:
+      labels:
+        app: orbslam3
+    spec:
+      containers:
+      - name: orbslam3
+        image: pinetree1999/orbslam3:latest
+        ports:
+        - containerPort: 80
